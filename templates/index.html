@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/" method="post">
+    {% csrf_token %}
+    标题<input type="text" name="title" value="{{title}}"><br/>
+    内容<textarea name="body">{{title}}</textarea><br/>
+    <input type="submit" value="提交">
+</form>
+{% for i in articles %}
+    <p>{{ i.title }}</p>
+    <a href="update?id={{ i.id }}">修改</a>
+    <a href="delete?id={{ i.id }}">删除</a>
+{% endfor %}
+</body>
+</html>
